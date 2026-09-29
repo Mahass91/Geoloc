@@ -17,7 +17,7 @@ func main() {
 	// Change Paths to load csv and save json to
 	csvFilePath := "csv_file/adress.csv"
 	jsonfilePath := "csv_file/adress.json"
-
+	// Change CSV to Struct
 	adress := loadCsvData(csvFilePath)
 
 	var allAdresses []addressJson
@@ -32,7 +32,6 @@ func main() {
 		results := fetchNominatimData(urlApi)
 		addCoordsToStruct(results, &traderadress)
 		time.Sleep(1 * time.Second)
-		fmt.Println("Latitude:", traderadress.Latitude, "Longitute:", traderadress.Longitude)
 		allAdresses = append(allAdresses, traderadress)
 	}
 
