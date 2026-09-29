@@ -13,6 +13,18 @@ import (
 	"time"
 )
 
+type addressJson struct {
+	Streetname string  `json:"streetname"`
+	Number     string  `json:"number"`
+	Offer      string  `json:"offer"`
+	Latitude   float64 `json:"lat"`
+	Longitude  float64 `json:"lon"`
+}
+type nominatimCoords struct {
+	Lat string `json:"lat"`
+	Lon string `json:"lon"`
+}
+
 func main() {
 	// Change Paths to load csv and save json to
 	csvFilePath := "csv_file/adress.csv"
@@ -42,18 +54,6 @@ func main() {
 	createJson(JSONData, jsonfilePath)
 	fmt.Println("Work completed!")
 
-}
-
-type addressJson struct {
-	Streetname string  `json:"streetname"`
-	Number     string  `json:"number"`
-	Offer      string  `json:"offer"`
-	Latitude   float64 `json:"lat"`
-	Longitude  float64 `json:"lon"`
-}
-type nominatimCoords struct {
-	Lat string `json:"lat"`
-	Lon string `json:"lon"`
 }
 
 func createUrl(address addressJson) string {
